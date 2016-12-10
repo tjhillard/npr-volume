@@ -8,7 +8,7 @@ var controls = document.createElement('input');
 controls.type = 'range';
 controls.max = 100;
 controls.min = 0;
-controls.step = 1;
+controls.step = 5;
 controls.value = 80;
 
 var savedVolume = null;
@@ -27,13 +27,13 @@ var checkForIsPlaying = setInterval(function() {
         player.appendChild(controls);
 
         if (savedVolume) {
-            controls.value = savedVolume;
+            controls.value = savedVolume * 100;
             document.querySelector('audio').volume = savedVolume;
         } else {
             document.querySelector('audio').volume = 0.8;
         }
 
-        controls.addEventListener('input', function(e) {
+        controls.addEventListener('change', function(e) {
             var volume = e.target.value / 100;
             document.querySelector('audio').volume = volume;
             chrome.storage.sync.set({'nprVolume': volume});
