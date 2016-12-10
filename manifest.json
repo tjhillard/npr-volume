@@ -1,0 +1,16 @@
+{
+  "name": "NPR Volume",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "content_scripts": [
+    {
+      "matches": ["http://www.npr.org/*"],
+      "run_at": "document_end",
+      "css": ["style.css"],
+      "js": ["app.js"]
+    }
+    ],
+    "permissions": [
+         "storage"
+    ]
+}

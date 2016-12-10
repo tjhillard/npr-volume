@@ -1,0 +1,11 @@
+{
+  "name": "npr-volume",
+  "version": "0.0.1",
+  "description": "Volume control for NPR web player.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TJ Hillard",
+  "license": "ISC"
+}
