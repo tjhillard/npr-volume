@@ -2,18 +2,21 @@
 // npr-volume
 // @_tjhillard
 // December 2016
-//-----------------------------
+// -----------------------------
 
 var controls = document.createElement('input');
 controls.type = 'range';
 controls.max = 1;
 controls.min = 0;
 controls.step = 0.1;
+controls.value = 0.8;
 
 var savedVolume = null;
 
 chrome.storage.sync.get('nprVolume', function(val) {
-    savedVolume = val;
+    if (val.nprVolume) {
+        savedVolume = val.nprVolume;
+    }
 });
 
 var checkForIsPlaying = setInterval(function() {
@@ -24,14 +27,15 @@ var checkForIsPlaying = setInterval(function() {
         player.appendChild(controls);
 
         if (savedVolume) {
-            controls.value = savedVolume.nprVolume;
-            document.querySelector('audio').volume = savedVolume.nprVolume;
+            controls.value = savedVolume;
+            document.querySelector('audio').volume = savedVolume;
+        } else {
+            document.querySelector('audio').volume = 0.8;
         }
 
         controls.addEventListener('input', function(e) {
             var volume = e.target.value;
             document.querySelector('audio').volume = volume;
-
             chrome.storage.sync.set({'nprVolume': volume});
         });
     }
