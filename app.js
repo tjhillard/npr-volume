@@ -30,7 +30,7 @@ var checkForIsPlaying = setInterval(function() {
             controls.value = savedVolume;
             document.querySelector('audio').volume = savedVolume;
         } else {
-            document.querySelector('audio').volume = 80;
+            document.querySelector('audio').volume = 0.8;
         }
 
         controls.addEventListener('input', function(e) {
