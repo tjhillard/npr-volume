@@ -1,10 +1,10 @@
 {
   "name": "NPR Volume",
-  "manifest_version": 2,
-  "version": "0.0.2",
+  "manifest_version": 3,
+  "version": "0.0.3",
   "content_scripts": [
     {
-      "matches": ["http://www.npr.org/*"],
+      "matches": ["https://www.npr.org/*"],
       "run_at": "document_end",
       "css": ["style.css"],
       "js": ["app.js"]
